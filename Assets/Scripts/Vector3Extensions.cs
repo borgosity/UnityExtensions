@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace borgosity
+namespace Borgosity.Extenions
 {
-    public class Vector3Extensions
+    public static class Vector3Extensions
     {
-
+        public static float Distance(this Vector3 source, Vector3 destination)
+        {
+            return (source - destination).sqrMagnitude;
+        }
     }
 }

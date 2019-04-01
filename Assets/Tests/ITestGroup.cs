@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Borgosity.Extenions
+public interface ITestGroup
 {
-    public static class TransformExtensions
-    {
-
-    }
+    void Initialize();
+    void Run();
+    void Results();
 }

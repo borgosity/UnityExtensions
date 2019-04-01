@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Borgosity.Extenions
+public class ExtensionTester : MonoBehaviour
 {
-    public static class PostionExtensions
+    private void OnEnable()
     {
         
     }
