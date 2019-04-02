@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestGroupPositionExtensions : MonoBehaviour, ITestGroup
+public class TestGroupPositionExtensions : ITestGroup
 {
-    private List<ITest> tests = new List<ITest>();
+    private List<Test> tests = new List<Test>();
     private List<bool> results = new List<bool>();
     private bool groupResult = true;
 
@@ -15,7 +15,7 @@ public class TestGroupPositionExtensions : MonoBehaviour, ITestGroup
 
     public void Run()
     {
-        foreach(ITest test in tests)
+        foreach(Test test in tests)
         {
             bool result = test.Run();
             groupResult = groupResult && result ? true : false;
@@ -25,11 +25,16 @@ public class TestGroupPositionExtensions : MonoBehaviour, ITestGroup
 
     public void Results()
     {
-        Debug.Log("Overall result: " + groupResult);
-        foreach(ITest test in tests)
+        Debug.Log("Overall result: " + ResultText(groupResult));
+        foreach(Test test in tests)
         {
-            Debug.Log("Test: ");
+            Debug.Log("Test: " + test.testName + " = " + ResultText(test.result) );
         }
 
+    }
+
+    private string ResultText(bool result)
+    {
+        return result ? "<color=green> PASS </color>" : "<color=red> FAIL </color>";
     }
 }

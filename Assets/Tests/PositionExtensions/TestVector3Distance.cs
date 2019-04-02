@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using Borgosity.Extenions;
 
-public class TestVector3Distance : MonoBehaviour, ITest
+public class TestVector3Distance : Test
 {
-    float expectedResult = 0;
+    float expectedResult = 3;
     float distance = 0;
 
     Vector3 source = Vector3.zero;
     Vector3 destination = Vector3.one;
 
-    public void Initialize()
+    public override void Initialize()
     {
-
+        testName = "Vector3 Distance";
     }
 
-    public bool Run()
+    public override bool Run()
     {
         distance = source.Distance(destination);
-        return expectedResult == distance;
+        return result = expectedResult == distance;
     }
 }
